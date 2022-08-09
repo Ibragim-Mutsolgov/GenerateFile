@@ -7,16 +7,25 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Main Page</title>
 </head>
-<body>
+<body bgcolor="#9ED2C6">
 
-    <h1 style="text-align: center">Генератор файла</h1>
+    <h1 style="text-align: center">File Data Generator</h1>
 
-    <form th:action="@{/}" method="post">
-        <input type="text" th:name="name">
-        <input type="submit" th:value="Отправить"/>
-    </form>
+    <div class="container" style="align-items: center; display: flex; flex-direction: column">
+        <form th:action="@{/}" method="post">
+            <p>
+                <label>File name: </label>
+                <input type="text" th:name="name" placeholder="File name">
+            </p>
+            <p>
+                <label>Column:</label>
+                <input type="text" th:name="column"/>
+            </p>
+            <input type="submit" th:value="GET"/>
+        </form>
+    </div>
 
 </body>
 </html>
