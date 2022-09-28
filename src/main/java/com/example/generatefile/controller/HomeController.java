@@ -3,6 +3,7 @@ package com.example.generatefile.controller;
 import lombok.AllArgsConstructor;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -27,14 +28,25 @@ public class HomeController {
     }
 
     @PostMapping
-    public ResponseEntity<Resource> generate(@RequestParam(name = "name") String name) throws IOException {
-        if(name != null && !name.equals("")) {
-            File file = new File("result.txt");
-            FileOutputStream outputStream = new FileOutputStream(file);
-            outputStream.write(name.getBytes());
+    public ResponseEntity<Resource> generate(
+            @RequestParam(name = "name") String name,
+            @RequestParam(name = "column") String column) throws IOException {
+        if(name != null && !name.isEmpty()
+                && column != null && !column.isEmpty()) {
+            File file = new File(name + ".csv");
+            FileOutputStream outputStream = new FileOutputStream(file, true);
+            outputStream.write(column.getBytes());
+            outputStream.flush();
+            outputStream.close();
             InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
+            HttpHeaders headers = new HttpHeaders();
+            headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + name + ".csv");
+            headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
+            headers.add("Pragma", "no-cache");
+            headers.add("Expires", "0");
             return ResponseEntity
                     .ok()
+                    .headers(headers)
                     .contentType(MediaType.APPLICATION_OCTET_STREAM)
                     .body(resource);
         }else{
