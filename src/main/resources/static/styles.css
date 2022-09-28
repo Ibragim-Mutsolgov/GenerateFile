@@ -3,10 +3,13 @@ html {
     padding-bottom: 20px;
 }
 body {
+    background-color: #8BBCCC;
+}
+#div1 {
     width: 80%;
     border: 2px solid black;
     border-radius: 15px;
-    background-color: #8BBCCC;
+    background-color: #FFCB42;
     color: black;
     margin: 0 auto;
 }
