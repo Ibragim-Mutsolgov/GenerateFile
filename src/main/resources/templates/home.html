@@ -15,17 +15,17 @@
             <div>
                 <h3 style="margin-top: 10px; margin-left: 10px; margin-bottom: 5px">Меню</h3>
                 <ul style="margin: 10px">
-                    <li><a href="/">CSV</a></li>
+                    <li><a href="/">TXT</a></li>
                     <li><a href="/generate_uuid">UUID</a></li>
                 </ul>
             </div>
         </div>
         <div style="margin-left: 130px; margin-right: 10px;
         margin-bottom: 10px; display: block; border: 1px solid black; background-color: white">
-            <h2 style="text-align: center">Генератор данных в файл</h2>
+            <h2 style="text-align: center">Генератор данных в текстовый файл</h2>
             <div style="padding: 10px">
                 <form th:action="@{/}" method="post">
-                    <input type="text" th:name="name" placeholder="Данные"></br>
+                    <input type="text" th:name="text" placeholder="Данные в файл" required></br>
                     <input type="submit" th:value="Отправить"/>
                 </form>
             </div>

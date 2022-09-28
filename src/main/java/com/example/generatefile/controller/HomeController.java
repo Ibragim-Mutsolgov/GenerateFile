@@ -29,24 +29,16 @@ public class HomeController {
 
     @PostMapping
     public ResponseEntity<Resource> generate(
-            @RequestParam(name = "name") String name,
-            @RequestParam(name = "column") String column) throws IOException {
-        if(name != null && !name.isEmpty()
-                && column != null && !column.isEmpty()) {
-            File file = new File(name + ".csv");
+            @RequestParam(name = "text") String text) throws IOException {
+        if(text != null && !text.isEmpty()) {
+            File file = new File("result.csv");
             FileOutputStream outputStream = new FileOutputStream(file, true);
-            outputStream.write(column.getBytes());
+            outputStream.write(text.getBytes());
             outputStream.flush();
             outputStream.close();
             InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
-            HttpHeaders headers = new HttpHeaders();
-            headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + name + ".csv");
-            headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
-            headers.add("Pragma", "no-cache");
-            headers.add("Expires", "0");
             return ResponseEntity
                     .ok()
-                    .headers(headers)
                     .contentType(MediaType.APPLICATION_OCTET_STREAM)
                     .body(resource);
         }else{

@@ -30,6 +30,8 @@ public class GenerateUUIDController {
                 uuidOfString.append(UUID.randomUUID());
             }
             fileOutputStream.write(uuidOfString.toString().getBytes());
+            fileOutputStream.flush();
+            fileOutputStream.close();
             InputStreamResource inputStreamResource = new InputStreamResource(new FileInputStream(file));
             return ResponseEntity
                     .ok()
