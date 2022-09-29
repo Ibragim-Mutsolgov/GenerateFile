@@ -9,5 +9,4 @@ public class GenerateFileApplication {
     public static void main(String[] args) {
         SpringApplication.run(GenerateFileApplication.class, args);
     }
-
 }
