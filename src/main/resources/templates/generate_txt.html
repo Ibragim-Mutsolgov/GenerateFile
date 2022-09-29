@@ -17,6 +17,7 @@
                 <ul style="margin: 10px">
                     <li><a href="/">Text file</a></li>
                     <li><a href="/generate_uuid">UUID</a></li>
+                    <li><a href="/generate_csv">CSV</a></li>
                 </ul>
             </div>
         </div>
@@ -24,10 +25,10 @@
         margin-bottom: 10px; display: block; border: 1px solid black; background-color: white">
             <div style="text-align: center">
                 <h2>Data generator to text file</h2>
-                <form action="@{/}" method="post">
-                    <textarea style="width: 90%;" name="text" required></textarea>
+                <form th:action="@{/}" method="post">
+                    <textarea style="width: 90%;" th:name="text" required></textarea>
                     </br>
-                    <input style="margin: 10px; width: 150px; height: 35px; border: 1px solid black; border-radius: 5px; background-color: #8BBCCC" type="submit" value="Get"/>
+                    <input style="margin: 10px; width: 150px; height: 35px; border: 1px solid black; border-radius: 5px; background-color: #8BBCCC" type="submit" th:value="Get"/>
                 </form>
             </div>
         </div>

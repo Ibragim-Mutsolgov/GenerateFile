@@ -11,11 +11,11 @@ import java.io.*;
 import java.util.UUID;
 
 @Controller
-@RequestMapping("generate_uuid")
+@RequestMapping("/generate_uuid")
 public class GenerateUUIDController {
 
     @GetMapping
-    public String get() {
+    public String getPage() {
         return "generate_uuid";
     }
 

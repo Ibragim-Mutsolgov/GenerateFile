@@ -1,9 +1,7 @@
 package com.example.generatefile.controller;
 
-import lombok.AllArgsConstructor;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -19,17 +17,15 @@ import java.io.IOException;
 
 @Controller
 @RequestMapping("/")
-@AllArgsConstructor
-public class HomeController {
+public class GenerateTXTController {
 
     @GetMapping
-    public String home() {
-        return "home";
+    public String getPage() {
+        return "generate_txt";
     }
 
     @PostMapping
-    public ResponseEntity<Resource> generate(
-            @RequestParam(name = "text") String text) throws IOException {
+    public ResponseEntity<Resource> getFile(@RequestParam(name = "text") String text) throws IOException {
         if(text != null && !text.isEmpty()) {
             File file = new File("result.csv");
             FileOutputStream outputStream = new FileOutputStream(file, true);
