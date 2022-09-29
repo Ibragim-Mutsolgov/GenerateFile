@@ -2,31 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Generate UUID</title>
+    <title>Generate .txt</title>
     <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 <div id="div1">
     <div>
-        <h1 style="text-align: center">Генератор данных</h1>
+        <h1 style="text-align: center">Data Generator</h1>
     </div>
-    <div style="padding: 10px">
-        <div style="float: left; border: 1px solid black; margin-left: 10px; margin-bottom: 10px; background-color: white">
+    <div>
+        <div style="float: left; border: 1px solid black; border-radius: 5px; margin-left: 10px; margin-bottom: 10px; background-color: white">
             <div>
-                <h3 style="margin-top: 10px; margin-left: 10px; margin-bottom: 5px">Меню</h3>
+                <h3 style="margin-top: 10px; margin-left: 10px; margin-bottom: 5px">Menu</h3>
                 <ul style="margin: 10px">
-                    <li><a href="/">TXT</a></li>
+                    <li><a href="/">Text file</a></li>
                     <li><a href="/generate_uuid">UUID</a></li>
                 </ul>
             </div>
         </div>
-        <div style="margin-left: 130px; margin-right: 10px;
+        <div style="margin-left: 147.906px; border-radius: 5px; margin-right: 10px;
         margin-bottom: 10px; display: block; border: 1px solid black; background-color: white">
-            <h2 style="text-align: center">Генератор данных в текстовый файл</h2>
-            <div style="padding: 10px">
-                <form th:action="@{/}" method="post">
-                    <input type="text" th:name="text" placeholder="Данные в файл" required></br>
-                    <input type="submit" th:value="Отправить"/>
+            <div style="text-align: center">
+                <h2>Data generator to text file</h2>
+                <form action="@{/}" method="post">
+                    <textarea style="width: 90%;" name="text" required></textarea>
+                    </br>
+                    <input style="margin: 10px; width: 150px; height: 35px; border: 1px solid black; border-radius: 5px; background-color: #8BBCCC" type="submit" value="Get"/>
                 </form>
             </div>
         </div>
