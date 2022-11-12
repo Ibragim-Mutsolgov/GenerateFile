@@ -13,7 +13,7 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("/txt")
-@CrossOrigin(value = {"http://localhost:3000", "https://datafileweb.herokuapp.com/uuid"})
+@CrossOrigin(value = {"http://localhost:3000", "https://datafileweb.herokuapp.com"})
 public class TxtRestController {
 
     @PostMapping
