@@ -14,7 +14,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/uuid")
-@CrossOrigin(value = {"http://localhost:3000", "https://datafilebackend.herokuapp.com/uuid"})
+@CrossOrigin(value = {"http://localhost:3000", "https://datafileweb.herokuapp.com/uuid"})
 public class UuidRestController {
 
     @PostMapping
