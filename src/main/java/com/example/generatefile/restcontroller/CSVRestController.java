@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/csv")
-@CrossOrigin(value = {"http://localhost:3000", "https://datafilebackend.herokuapp.com/"})
+@CrossOrigin(value = {"http://localhost:3000", "https://datafilebackend.herokuapp.com/csv"})
 public class CSVRestController {
 
     @PostMapping
